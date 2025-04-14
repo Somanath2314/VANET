@@ -2,9 +2,14 @@ import traci
 import time
 import csv
 import datetime
+import os
 
-# Setup CSV logging
-log_file = open("traffic_log.csv", mode='w', newline='')
+# Get the project root directory (assuming controller.py is in the intersection folder)
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Setup CSV logging with path to traffic folder
+log_file_path = os.path.join(project_root, "traffic", "traffic_log.csv")
+log_file = open(log_file_path, mode='w', newline='')
 log_writer = csv.writer(log_file)
 log_writer.writerow(["Timestamp", "Traffic Density", "Green Lane", "Green Duration"])
 
@@ -25,7 +30,9 @@ lane_counts = {
 }
 
 traffic_light_id = "center"
-sumo_cmd = ["sumo-gui", "-c", "simulation.sumocfg"]
+# Update path to simulation.sumocfg
+sumocfg_path = os.path.join(project_root, "network", "simulation.sumocfg")
+sumo_cmd = ["sumo-gui", "-c", sumocfg_path]
 traci.start(sumo_cmd)
 
 print("Controller running...")
