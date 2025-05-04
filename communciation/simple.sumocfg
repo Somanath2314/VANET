@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <input>
+        <net-file value="simple.net.xml"/>
+        <route-files value="simple.rou.xml"/>
+        <additional-files value="simple.add.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="200"/>
+    </time>
+</configuration>

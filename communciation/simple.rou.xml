@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes>
+    <vType id="car" accel="1.0" decel="4.5" maxSpeed="20" length="5" color="1,0,0"/>
+    <route id="route0" edges="edge0 edge1"/>
+
+    <vehicle id="veh0" type="car" route="route0" depart="1"/>
+    <vehicle id="veh1" type="car" route="route0" depart="10"/>
+    <vehicle id="veh2" type="car" route="route0" depart="15"/>
+    <vehicle id="veh3" type="car" route="route0" depart="20"/>
+    <vehicle id="veh4" type="car" route="route0" depart="25"/>
+    <!-- <vehicle id="veh5" type="car" route="route0" depart="11"/>
+    <vehicle id="veh6" type="car" route="route0" depart="13"/>
+    <vehicle id="veh7" type="car" route="route0" depart="15"/>
+    <vehicle id="veh8" type="car" route="route0" depart="17"/>
+    <vehicle id="veh9" type="car" route="route0" depart="19"/> -->
+</routes>
