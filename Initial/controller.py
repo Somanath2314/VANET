@@ -5,10 +5,12 @@ import datetime
 import os
 
 # Get the project root directory (assuming controller.py is in the intersection folder)
-project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+project_root = os.path.dirname(os.path.abspath(__file__))
+
 
 # Setup CSV logging with path to traffic folder
 log_file_path = os.path.join(project_root, "traffic", "traffic_log.csv")
+os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
 log_file = open(log_file_path, mode='w', newline='')
 log_writer = csv.writer(log_file)
 log_writer.writerow(["Timestamp", "Traffic Density", "Green Lane", "Green Duration"])
@@ -31,7 +33,7 @@ lane_counts = {
 
 traffic_light_id = "center"
 # Update path to simulation.sumocfg
-sumocfg_path = os.path.join(project_root, "network", "simulation.sumocfg")
+sumocfg_path = os.path.join(project_root, "simulation.sumocfg")
 sumo_cmd = ["sumo-gui", "-c", sumocfg_path]
 traci.start(sumo_cmd)
 
