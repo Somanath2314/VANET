@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes>
+    <!-- Intersection center with a traffic light -->
+    <node id="center" x="0.0"   y="0.0"   type="traffic_light"/>
+
+    <!-- Approach nodes (500m away in each direction) -->
+    <node id="north"  x="0.0"   y="500.0" type="priority"/>
+    <node id="south"  x="0.0"   y="-500.0" type="priority"/>
+    <node id="east"   x="500.0" y="0.0"   type="priority"/>
+    <node id="west"   x="-500.0" y="0.0"  type="priority"/>
+
+    <!-- Placeholder “RSU” at (0, 550) for fog (static). 
+         It doesn’t connect roads in SUMO, but we’ll use its coordinates in the Python scripts to illustrate “fog.” -->
+    <node id="rsu_fog" x="0.0" y="550.0" type="priority"/>
+</nodes>

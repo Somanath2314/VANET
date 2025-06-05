@@ -1,0 +1,21 @@
+<additional>
+    <!-- Lane Area Detector for North Approach (Incoming) -->
+    <laneAreaDetector id="area_north_approach_0_350" lane="edge_north_to_center_0" pos="138.0" length="350" freq="100000" file="detector_output.xml"/>
+    <poly id="poly_north_approach_strip" color="0,255,0,255" fill="true"
+          shape="504.00,862.00 508.00,862.00 508.00,512.00 504.00,512.00"/>
+
+    <!-- Lane Area Detector for South Approach (Incoming) -->
+    <laneAreaDetector id="area_south_approach_0_350" lane="edge_south_to_center_0" pos="138.0" length="350" freq="100000" file="detector_output.xml"/>
+    <poly id="poly_south_approach_strip" color="0,255,0,255" fill="true"
+          shape="492.00,138.00 496.00,138.00 496.00,488.00 492.00,488.00"/>
+
+    <!-- Lane Area Detector for East Approach (Incoming) -->
+    <laneAreaDetector id="area_east_approach_0_350" lane="edge_east_to_center_0" pos="138.0" length="350" freq="100000" file="detector_output.xml"/>
+    <poly id="poly_east_approach_strip" color="0,255,0,255" fill="true"
+          shape="862.00,492.00 862.00,496.00 512.00,496.00 512.00,492.00"/>
+
+    <!-- Lane Area Detector for West Approach (Incoming) -->
+    <laneAreaDetector id="area_west_approach_0_350" lane="edge_west_to_center_0" pos="138.0" length="350" freq="100000" file="detector_output.xml"/>
+    <poly id="poly_west_approach_strip" color="0,255,0,255" fill="true"
+          shape="138.00,504.00 138.00,508.00 488.00,508.00 488.00,504.00"/>
+</additional>
