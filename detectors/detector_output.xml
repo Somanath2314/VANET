@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2025-06-05 18:14:22 by Eclipse SUMO GUI Version 1.22.0
+<!-- generated on 2025-06-05 20:03:04 by Eclipse SUMO GUI Version 1.22.0
 <sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
@@ -16,15 +16,7 @@
     </time>
 
     <traci_server>
-        <remote-port value="64556"/>
+        <remote-port value="55903"/>
     </traci_server>
 
 </sumoConfiguration>
--->
-
-<detector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/det_e2_file.xsd">
-   <interval begin="0.00" end="175.70" id="area_north_approach_0_350" sampledSeconds="388.76" nVehEntered="14" nVehLeft="11" nVehSeen="14" meanSpeed="11.85" meanTimeLoss="2.94" meanOccupancy="3.09" maxOccupancy="4.29" meanMaxJamLengthInVehicles="0.09" meanMaxJamLengthInMeters="0.43" maxJamLengthInVehicles="1" maxJamLengthInMeters="5.00" jamLengthInVehiclesSum="153" jamLengthInMetersSum="764.23" meanHaltingDuration="3.17" maxHaltingDuration="7.20" haltingDurationSum="22.20" meanIntervalHaltingDuration="3.17" maxIntervalHaltingDuration="7.20" intervalHaltingDurationSum="22.20" startedHalts="7.00" meanVehicleNumber="2.22" maxVehicleNumber="3" />
-   <interval begin="0.00" end="175.70" id="area_south_approach_0_350" sampledSeconds="158.99" nVehEntered="5" nVehLeft="4" nVehSeen="5" meanSpeed="10.27" meanTimeLoss="1.95" meanOccupancy="2.98" maxOccupancy="6.86" meanMaxJamLengthInVehicles="0.03" meanMaxJamLengthInMeters="0.31" maxJamLengthInVehicles="1" maxJamLengthInMeters="12.00" jamLengthInVehiclesSum="45" jamLengthInMetersSum="540.00" meanHaltingDuration="5.50" maxHaltingDuration="5.50" haltingDurationSum="5.50" meanIntervalHaltingDuration="5.50" maxIntervalHaltingDuration="5.50" intervalHaltingDurationSum="5.50" startedHalts="1.00" meanVehicleNumber="0.91" maxVehicleNumber="2" />
-   <interval begin="0.00" end="175.70" id="area_east_approach_0_350" sampledSeconds="368.79" nVehEntered="14" nVehLeft="12" nVehSeen="14" meanSpeed="12.46" meanTimeLoss="1.19" meanOccupancy="2.94" maxOccupancy="4.29" meanMaxJamLengthInVehicles="0.02" meanMaxJamLengthInMeters="0.10" maxJamLengthInVehicles="1" maxJamLengthInMeters="5.00" jamLengthInVehiclesSum="36" jamLengthInMetersSum="180.00" meanHaltingDuration="2.80" maxHaltingDuration="3.10" haltingDurationSum="5.60" meanIntervalHaltingDuration="2.80" maxIntervalHaltingDuration="3.10" intervalHaltingDurationSum="5.60" startedHalts="2.00" meanVehicleNumber="2.11" maxVehicleNumber="3" />
-   <interval begin="0.00" end="175.70" id="area_west_approach_0_350" sampledSeconds="369.03" nVehEntered="14" nVehLeft="12" nVehSeen="14" meanSpeed="12.50" meanTimeLoss="0.99" meanOccupancy="2.94" maxOccupancy="4.29" meanMaxJamLengthInVehicles="0.02" meanMaxJamLengthInMeters="0.10" maxJamLengthInVehicles="1" maxJamLengthInMeters="5.00" jamLengthInVehiclesSum="36" jamLengthInMetersSum="180.00" meanHaltingDuration="4.60" maxHaltingDuration="4.60" haltingDurationSum="4.60" meanIntervalHaltingDuration="4.60" maxIntervalHaltingDuration="4.60" intervalHaltingDurationSum="4.60" startedHalts="1.00" meanVehicleNumber="2.11" maxVehicleNumber="3" />
-</detector>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <input>
+        <net-file value="../net/intersection.net.xml"/>
+        <route-files value="../routes/simple_left_turn.rou.xml"/>
+        <additional-files value="../detectors/induction_loops.add.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="2000"/>
+        <step-length value="0.1"/>
+    </time>
+    <report>
+        <traci-port value="8815"/>
+    </report>
+</configuration> 

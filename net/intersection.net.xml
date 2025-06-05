@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!-- generated on 2025-06-05 14:23:11 by Eclipse SUMO netconvert Version 1.22.0
-<netconvertConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
-
-    <input>
-        <node-files value="nodes.nod.xml"/>
-        <edge-files value="edges.edg.xml"/>
-    </input>
-
-    <output>
-        <output-file value="intersection.net.xml"/>
-    </output>
-
-    <processing>
-        <lefthand value="true"/>
-    </processing>
-
-</netconvertConfiguration>
--->
+<?xml version="1.0" encoding="UTF-8"?> 
 
 <net version="1.20" junctionCornerDetail="5" lefthand="true" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
 

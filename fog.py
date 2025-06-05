@@ -1,65 +1,50 @@
 #!/usr/bin/env python3
 """
-fog.py:
-  - Binds to UDP port 5005 
-  - Receives encrypted reports from edge via UDP
-  - Decrypts with AES-GCM (same key as edge.py)
-  - Prints the JSON traffic counts to console
+fog.py
+
+- Binds to UDP port 5005.
+- Receives encrypted AES-GCM messages from edge scripts (pole1, pole2, pole3).
+- Decrypts each message and prints the plaintext JSON (including pole_id).
 """
 
 import socket
 import json
 from Crypto.Cipher import AES
 
-# Same 16-byte key as in edge.py
+# AES-GCM uses same 16-byte key as all edges:
 KEY = b'0123456789abcdef'
+BUFFER_SIZE = 4096  # should be large enough for nonce||tag||ciphertext
 
-UDP_IP = "127.0.0.1"
-UDP_PORT = 5005
-
-def decrypt_report(data):
+def decrypt_message(data):
     """
-    Given data = nonce (16 bytes) || tag (16 bytes) || ciphertext,
-    attempt to decrypt with AES-GCM and return the JSON string.
+    Data format = nonce (16 bytes) || tag(16 bytes) || ciphertext
+    Returns decrypted JSON object (as Python dict).
     """
     nonce = data[:16]
     tag   = data[16:32]
     ciphertext = data[32:]
     cipher = AES.new(KEY, AES.MODE_GCM, nonce=nonce)
-    try:
-        plaintext = cipher.decrypt_and_verify(ciphertext, tag)
-        return plaintext.decode('utf-8')
-    except Exception as e:
-        return f"Decryption/verification failed: {e}"
-
-def print_traffic_status(report):
-    """Print a formatted traffic status report"""
-    print("\n" + "="*50)
-    print(f"Time Step: {report['timestep']}")
-    print("-"*50)
-    print("Vehicle Counts:")
-    print(f"  North: {report['north_count']}")
-    print(f"  South: {report['south_count']}")
-    print(f"  East:  {report['east_count']}")
-    print(f"  West:  {report['west_count']}")
-    print("-"*50)
-    print(f"Current Phase: {report['current_phase']}")
-    print("="*50 + "\n")
+    plaintext = cipher.decrypt_and_verify(ciphertext, tag)
+    return json.loads(plaintext.decode('utf-8'))
 
 def run_fog():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.bind((UDP_IP, UDP_PORT))
-    print(f"Fog: Listening on UDP {UDP_IP}:{UDP_PORT} ...")
-    print("Waiting for encrypted traffic data from edge...")
+    sock.bind(("0.0.0.0", 5005))
+    print("[fog] Listening on UDP port 5005 for encrypted edge reports…")
 
-    while True:
-        data, addr = sock.recvfrom(1024)  # buffer size is 1024 bytes
-        report_json = decrypt_report(data)
-        try:
-            report = json.loads(report_json)
-            print_traffic_status(report)
-        except json.JSONDecodeError:
-            print(f"Error: Invalid JSON received: {report_json}")
+    try:
+        while True:
+            data, addr = sock.recvfrom(BUFFER_SIZE)
+            try:
+                report = decrypt_message(data)
+                pole = report.get("pole_id", "UNKNOWN")
+                print(f"[fog] Received from {pole}: {report}")
+            except Exception as e:
+                print(f"[fog] Decryption or parsing error: {e}")
+    except KeyboardInterrupt:
+        print("\n[fog] Stopped by user.")
+    finally:
+        sock.close()
 
 if __name__ == "__main__":
     run_fog() 
